@@ -23,22 +23,24 @@ def Delete():
 	global SS
 	while(True):
 		name = input('Please enter the name you want to delete(0 to quit):')
+		if name == '0':
+			return
 		if SS.get(name,False) == False:
 			print('not exist')
 			break
 		del SS[name]
 
 def Sort():
-	sw = input('ascending -> 1\nascending ->2\n')
-	print('This is the sorter list')
-	if sw == 1:
+	sw = input('ascending -> 1\ndescending ->2\n')
+	print('This is the sorted list')
+	if sw == '1':
 		temp = sorted(SS.items(), key=lambda e:e[1], reverse=False) #返回list
 	else:
 		temp = sorted(SS.items(), key=lambda e:e[1], reverse=True)
 	for item in temp:
 		print (item)
 
-import pickle as p #成绩保存于同目录中的scores.data文件
+import pickle as p
 f = open('scores.data', 'rb')
 SS = p.load(f)
 while(True):
