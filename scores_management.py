@@ -65,7 +65,7 @@ def Sort():
 
 import pickle as p
 import os, sys
-filename = os.path.dirname(os.path.abspath(sys.argv[0]))
+filename = os.path.dirname(os.path.abspath(sys.argv[0])) #获取.py文件目录，使data文件创建在此目录下
 filename = filename + '\scores.data'
 #print (filename)
 if not os.path.exists(filename):
